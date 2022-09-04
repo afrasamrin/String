@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentence Assignment</title>
+    <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(#e66465, #9198e5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+input {
+    background-color: rgba(255, 255, 255, 0.50);
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 1rem;
+    min-width: 300px;
+    
+}
+
+
+input:focus {
+    outline: none;
+}
+
+div {
+    background-color: rgba(255, 255, 255, 0.50);
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 3rem;
+    margin-top: 2rem;
+    min-width: 300px;
+}
+
+button {
+  background-color: rgba(255, 255, 255, 0.50);
+  border: none;
+  border-radius: 25px;
+  font-family: inherit;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  min-width: 100px;
+  font-size: 1rem;
+  margin-left: 6rem;
+  cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text" id="sentence" name="sentence" placeholder="Enter a sentence"><br><br>
+        <input type="text" id="char" name="char" placeholder="Enter a letter"><br><br>
+        <button type="button" class="button" onclick="change()">Submit</button>
+    </form>
+    <div id="ret" aria-placeholder="none"></div>
+    <script>
+function change(){
+     let str = document.getElementById("sentence").value;
+      let str1 = "";
+     let search = document.getElementById("char").value;
+     let boolean = false;
+     for(let i =0;i<str.length;i++){
+        if(boolean == true ){
+            str1 += str[i];
+        }else if(str[i] == search){
+            boolean = true;
+        }else if(search == false || str[i] != search){
+            boolean = false;
+        }
+     }
+     if(boolean == false){
+        str1 = "Not Found";
+     }
+  
+     document.getElementById("ret").innerHTML = str1 ;
+     
+     
+
+    }     
+    </script>
+    
+</body>
+</html>
